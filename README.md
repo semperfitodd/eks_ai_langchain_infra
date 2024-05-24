@@ -15,7 +15,7 @@
 - [Agent Setup](#agent-setup)
 
 
-This repository contains Terraform configurations to set up infrastructure for CASM Learning.
+This repository contains Terraform configurations to set up infrastructure for EKS AI Langchain.
 
 ## Resources
 ### Per environment
@@ -33,17 +33,17 @@ This repository contains Terraform configurations to set up infrastructure for C
 ### Prerequisites
 
 - Ensure you have Terraform installed. If not, download and install it from the [official site](https://www.terraform.io/downloads.html).
-- Ensure you have AWS CLI installed and configured with the necessary permissions (BlueSentry cross-account role.)
+- Ensure you have AWS CLI installed and configured with the necessary permissions.
 - Ensure you have OpenVPN installed for accessing the VPN.
 
 ### Variables
 
 **Variables in`terraform.tfvars` file:**
 ```hcl
-company = "casm"
-domain = "casmlearning.io"
-openvpn_instance_type = "t3.micro"
-region = "<AWS_REGION>"
+company = ""
+domain = ""
+openvpn_instance_type = ""
+region = ""
 ```
 
 The rest are defined in the main configuration.
@@ -88,13 +88,13 @@ module "dev" {
 
 ## Accessing OpenVPN
 
-* VPN is accessible at: https://vpn.casmlearning.io
+* VPN is accessible at: https://vpn.<DOMAIN_NAME>
 
-* VPN admin is accessible at: https://vpn.casmlearning.io/admin
+* VPN admin is accessible at: https://vpn.<DOMAIN_NAME>/admin
 
 ## ArgoCD
 
-* Argocd is accessible at: https://argocd-dev.casmlearning.io
+* Argocd is accessible at: https://argocd-dev.<DOMAIN_NAME>
 
 ## Connecting to EKS Cluster
 To access your Kubernetes cluster locally, follow these steps:
@@ -104,7 +104,7 @@ To access your Kubernetes cluster locally, follow these steps:
 2. Update your kubeconfig to use the EKS cluster:
 
     ```bash
-    aws eks update-kubeconfig --region <AWS_REGION> --name dev --profile casm
+    aws eks update-kubeconfig --region <AWS_REGION> --name dev
     
     Added new context arn:aws:eks:<AWS_REGION>:<ACCOUNT_NUMBER>:cluster/dev0
     ```
@@ -120,7 +120,7 @@ To access your Kubernetes cluster locally, follow these steps:
 1. Login to ECR from your terminal
 
    ```bash
-   aws ecr get-login-password --region <AWS_REGION> --profile casm| docker login --username AWS --password-stdin <ACCOUNT_NUMBER>.dkr.ecr.<AWS_REGION>.amazonaws.com
+   aws ecr get-login-password --region <AWS_REGION>| docker login --username AWS --password-stdin <ACCOUNT_NUMBER>.dkr.ecr.<AWS_REGION>.amazonaws.com
    
    Login Succeeded
    ```
