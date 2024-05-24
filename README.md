@@ -1,4 +1,4 @@
-# CASM Learning Infrastructure
+# EKS AI Langchain Infrastructure
 
 ## Table of Contents
 - [Resources](#resources)
