@@ -1,7 +1,7 @@
-company = "casm"
+company = ""
 
-domain = "casmlearning.io"
+domain = ""
 
-openvpn_instance_type = "t3.micro"
+openvpn_instance_type = ""
 
-region = "us-east-1"
+region = ""
