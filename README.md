@@ -106,7 +106,7 @@ To access your Kubernetes cluster locally, follow these steps:
     ```bash
     aws eks update-kubeconfig --region <AWS_REGION> --name dev
     
-    Added new context arn:aws:eks:<AWS_REGION>:<ACCOUNT_NUMBER>:cluster/dev0
+    Added new context arn:aws:eks:<AWS_REGION>:<ACCOUNT_NUMBER>:cluster/dev
     ```
 3. You can now run kubectl commands. For example, to get the list of nodes:
     ```bash
